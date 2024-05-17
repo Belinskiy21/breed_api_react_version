@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # this controller will responds with the dogs breed information
-class DogsController < ApplicationController
+class Api::V1::DogsController < ApplicationController
   # GET /dogs
   def index
     render json: Dog.all
