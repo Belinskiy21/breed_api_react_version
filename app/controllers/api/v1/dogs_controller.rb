@@ -7,13 +7,19 @@ class Api::V1::DogsController < ApplicationController
     render json: Dog.all
   end
 
-  # GET /fetch
+  # POST /fetch
   def fetch
-    service = BreedService.new(params.require(:breed))
+    service = BreedService.new(breed_param)
     if service.call
       render json: { img: service.img, breed: service.breed }
     else
-      render json: { error: I18n.t(:no_matches_found) }
+      render json: { message: I18n.t(:no_matches_found) }, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def breed_param
+    params.require(:breedValue).underscore
   end
 end

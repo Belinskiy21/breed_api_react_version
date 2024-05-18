@@ -6,7 +6,7 @@ class BreedService
 
   def initialize(input)
     @input = input
-    raise ArgumentError, I18n.t(:breed_cant_be_blank) if input.blank?
+    raise ArgumentError, I18n.t(:input_cant_be_blank) if input.blank?
   end
 
   def call
