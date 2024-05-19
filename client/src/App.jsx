@@ -1,12 +1,16 @@
-import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
 import BreedForm from './features/breeds/breedForm';
+import AppRoutes from './components/appRoutes';
 
 function App() {
   return (
-    <div className='app'>
-      <BreedForm />
-    </div>
+    <Router>
+      <div className='app'>
+        <AppRoutes />
+      </div>
+    </Router>
   )
 }
 
-export default App
+export default App;
